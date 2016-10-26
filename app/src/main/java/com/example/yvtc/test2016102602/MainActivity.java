@@ -2,9 +2,10 @@ package com.example.yvtc.test2016102602;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
                         android.R.layout.simple_spinner_item,
                         mylist);
         spinner.setAdapter(adapter);
-
+    }
+    public void clickAdd(View v)
+    {
+        EditText ed = (EditText) findViewById(R.id.editText);
+        String str = ed.getText().toString();
+        mylist.add(str);
+        adapter.notifyDataSetChanged();
+    }
+    public void clickDelete(View v)
+    {
+        mylist.remove(spinner.getSelectedItemPosition());
+        adapter.notifyDataSetChanged();
     }
 }
