@@ -5,19 +5,26 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
-    String fruits[] = {"芭樂", "芒果", "荔枝", "甘蔗", "鳳梨"};
+    ArrayList<String> mylist;
+    // /String fruits[] = {"芭樂", "芒果", "荔枝", "甘蔗", "鳳梨"};
     Spinner spinner;
     ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mylist = new ArrayList<>();
+        mylist.add("芭樂");
+        mylist.add("芒果");
+        mylist.add("荔枝");
         spinner = (Spinner) findViewById(R.id.spinner);
 
         adapter = new ArrayAdapter<String>(MainActivity.this,
                         android.R.layout.simple_spinner_item,
-                        fruits);
+                        mylist);
         spinner.setAdapter(adapter);
 
     }
